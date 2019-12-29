@@ -1,0 +1,16 @@
+Vue.component('hijo', {
+    template:/* html */
+    `
+    <div class="py-5 bg-success">
+        <h4>Componente hijo:  {{numero}}</h4>
+    </div>
+    `,
+    /* Data para que sea dinamica , es una funcion */
+
+    props:['numero'],
+    data(){
+        return {
+          
+        }
+    }
+});

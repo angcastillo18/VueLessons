@@ -6,15 +6,20 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <script src="/components/saludos.js"  ></script>
     <script src="/components/contador.js"  ></script>
+    <script src="/components/padre.js"  ></script>
+    <script src="/components/hijo.js"  ></script>
 </head>
 <body>
-    <div id="app">
+    <div id="app" class="container">
         <my-component></my-component>
         <contador></contador>
         <!-- se crean diferentes instancias por cada componente -->
         <contador></contador>
+        <!-- componentes padre e hijo -->
+        <padre></padre>
     </div>
     <script>
         new Vue({
