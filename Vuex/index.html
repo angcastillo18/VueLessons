@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Vuex</title>
+    <!-- vue js -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <!-- VUEX -->
+    <script src="https://unpkg.com/vuex@3.1.2/dist/vuex.js"></script>
+</head>
+<body>
+    <div id="app">
+        <titulo></titulo>
+
+    </div>
+
+    <script>
+        Vue.component('titulo',{
+            template:/* html */
+            `
+            <div>
+                <h1>numero  {{numero}}</h1>
+                <hijo></hijo>
+            </div>
+            `,
+            computed:{
+/*          Este es una forma de simplificar el llamado, el otro es con mapstate   
+                numero(){
+                    return store.state.numero
+                } */
+                /* La otra forma es utilizando mapstate con una propiedad de EMS6,
+                 que permite colocar un objeto dentro de otro con ...*/
+                 /* Dentro del arreglo se declara todo lo que se definio en el state */
+                ...Vuex.mapState(['numero'])
+            }
+        });
+
+        Vue.component('hijo',{
+            template:/* html */
+            `
+            <div>
+                <button @click="aumentar" >+</button>
+                <button @click="disminuir(2)" >-</button>
+                <h1>numero  {{numero}}</h1>
+            </div>
+            `,
+            computed:{
+                ...Vuex.mapState(['numero'])
+            },
+            /* tambien podemos mapear mutations */
+            methods:{
+                ...Vuex.mapMutations(['aumentar','disminuir'])
+            }
+        });
+        /* Creamos la instancia de VUEX */
+        const store=new Vuex.Store({
+            /* creamos state, donde se almacenaran los datos */
+            state:{
+                numero:10
+            },
+            /* Las mutations son como eventos para cambiar al state */
+            mutations:{
+                aumentar(state){
+                    state.numero++;
+                },
+                /* pasar parametro n  */
+                disminuir(state,n){
+                    state.numero-=n;
+                }
+            }
+        });
+
+        new Vue({
+            el:'#app',
+            /* store:store */
+            store
+        })  ;  
+    </script>
+
+</body>
+</html>
