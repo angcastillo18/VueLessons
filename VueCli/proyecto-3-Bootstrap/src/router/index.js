@@ -23,7 +23,9 @@ const routes = [
 const router = new VueRouter({
   mode: 'history',
   base: process.env.BASE_URL,
-  routes
+  routes,
+  /* Para que se ponga en clase activa cuandoes exactamante el link , NavBar */
+  linkExactActiveClass: "active" // active class for *exact* links.
 })
 
 export default router
