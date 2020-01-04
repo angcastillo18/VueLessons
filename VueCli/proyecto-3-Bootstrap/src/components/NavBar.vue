@@ -10,6 +10,7 @@
                     <b-nav-item :to="{name:'home'}" exact  >Home</b-nav-item>
                     <b-nav-item :to="{name:'about'}"  exact>About Us</b-nav-item>
                     <b-nav-item :to="{name:'info'}"  exact>Information</b-nav-item>
+                    <b-nav-item :to="{name:'contact'}"  exact>Contact</b-nav-item>
 <!--                     <b-nav-item active-class="active" class="nav-link" v-for="routes in links" 
                         :key="routes.id" :to="routes.path"  exact>
                     {{ routes.name }} 
